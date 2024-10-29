@@ -1,0 +1,31 @@
+﻿@model ConcertBooking.Web.ViewModels.ArtistViewModels.ArtistDetailsViewModel
+
+@{
+    ViewData["Title"] = "Artist Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-5 mb-4">
+            <div class="card shadow-sm">
+                <img src="@Model.ImageUrl" class="card-img-top img-fluid rounded" alt="@Model.Name" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-7">
+            <h2 class="display-4 font-weight-bold text-white" style="font-family: 'Georgia', serif;">@Model.Name</h2>
+            <hr class="my-4" style="border-color: #fff;">
+            <h4 class="text-white mb-3" style="font-family: 'Arial', sans-serif;">Biography</h4>
+            <p class="lead text-justify text-white" style="font-size: 1.2rem; font-family: 'Times New Roman', Times, serif; line-height: 1.6;">
+                @Model.Bio
+            </p>
+            <div class="mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg mr-2">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

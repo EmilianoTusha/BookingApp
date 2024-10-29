@@ -1,0 +1,21 @@
+﻿@model List<HomeConcertViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row mt-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-3 mb-2">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.ConcertImage" alt="Concert image">
+                <div class="card-body">                   
+                    <h5 class="card-title" style="font-weight: bold; font-size: 1.25rem; font-family: 'Arial', sans-serif;">@item.ConcertName</h5>   
+                    <h5 class="card-title" style="font-size: 1rem; font-family: 'Arial', sans-serif;">@item.ArtistName</h5>
+                    <p class="card-text" style="font-size: 1rem;">@item.Description</p>
+                    <a asp-action="Details" asp-route-id="@item.ConcertId" class="btn" style="background-color: #dc3545; border-color: #dc3545; color: #ffffff;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

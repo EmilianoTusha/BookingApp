@@ -1,0 +1,53 @@
+﻿@model EditArtistViewModel
+@{
+    ViewData["Title"] = "Edit Artist";
+}
+
+<h1 class="text-center mb-4" style="font-family: 'Georgia', serif;">Edit Artist</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 text-center">
+        <div class="card shadow-sm mb-4">
+            <img src="@Model.ImageUrl" class="card-img-top img-fluid rounded" style="max-width: 100%; height: auto;" alt="@Model.Name">
+        </div>
+    </div>
+    <div class="col-md-8">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" class="form-control" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label" style="font-family: 'Arial', sans-serif;">Name</label>
+                <input asp-for="Name" class="form-control" style="font-family: 'Times New Roman', Times, serif;" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Bio" class="control-label" style="font-family: 'Arial', sans-serif;">Biography</label>
+                <textarea asp-for="Bio" class="form-control" rows="4" style="font-family: 'Times New Roman', Times, serif;"></textarea>
+                <span asp-validation-for="Bio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ChooseImage" class="control-label" style="font-family: 'Arial', sans-serif;">Upload New Image</label>
+                <input asp-for="ChooseImage" class="form-control" />
+                <span asp-validation-for="ChooseImage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group d-flex justify-content-between mt-4">
+                <input type="submit" value="Save" class="btn btn-primary btn-lg" />
+                <a asp-action="Index" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
